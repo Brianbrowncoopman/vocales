@@ -24,7 +24,6 @@ const palabrasPorLetra = {
   u: [
     { img: "/images/u/Uña.png", sound: "/sound/uña.mp3", nombre: "Uña" },
     { img: "/images/u/unicornio.png", sound: "/sound/unicornio.mp3", nombre: "unicornio" },
-    { img: "/images/u/uron.png", sound: "/sound/uron.mp3", nombre: "uron" },
     { img: "/images/u/uva.png", sound: "/sound/uva.mp3", nombre: "uva" },
   ],
 };
