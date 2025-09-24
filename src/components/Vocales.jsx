@@ -5,9 +5,6 @@ import CuboVocal from "./CuboVocal";
 import ImagenPalabra from "./ImagenPalabra";
 import palabrasPorLetra from "./PalabrasPorLetra";
 
-// Este objeto ya no es necesario, el layout se maneja con CSS.
-// const positions = { ... };
-
 const coloresCubo = [
   "#FF6F61", // rojo vivo
   "#FFD54F", // amarillo brillante
@@ -30,10 +27,13 @@ function getRandomIdx(arrLength, currentIdx) {
 
 const Vocales = () => {
   const todasLasPalabras = Object.values(palabrasPorLetra).flat();
-  const [palabraActualIdx, setPalabraActualIdx] = useState(() => getRandomIdx(todasLasPalabras.length, -1));
 
-  const palabraActual = todasLasPalabras[palabraActualIdx];
-  const letraActual = palabraActual.nombre[0].toLowerCase();
+  const [palabraActualIdx, setPalabraActualIdx] = useState(() => {
+    return todasLasPalabras.length > 0 ? getRandomIdx(todasLasPalabras.length, -1) : 0;
+  });
+
+  const palabraActual = todasLasPalabras[palabraActualIdx] || { nombre: "", img: "", sound: "" };
+  const letraActual = palabraActual.nombre ? palabraActual.nombre[0].toLowerCase() : "";
 
   const [seleccion, setSeleccion] = useState(null);
   const [feedback, setFeedback] = useState(null);
@@ -45,7 +45,6 @@ const Vocales = () => {
 
   const advanceTimeoutRef = useRef(null);
 
-  // --- TODA LA LÓGICA SE MANTIENE EXACTAMENTE IGUAL ---
   useEffect(() => {
     if (iniciado) {
       setFeedback(null);
@@ -98,7 +97,6 @@ const Vocales = () => {
   };
 
   useEffect(() => () => clearTimeout(advanceTimeoutRef.current), []);
-  // --- FIN DE LA LÓGICA ---
 
   return (
     <div className="vocales-container">
@@ -110,7 +108,6 @@ const Vocales = () => {
         </div>
       )}
 
-      {/* --- NUEVA ESTRUCTURA JSX --- */}
       <div className="cubos-container">
         {['a', 'e', 'i', 'o', 'u'].map((v, idx) => (
           <CuboVocal
@@ -121,7 +118,6 @@ const Vocales = () => {
             onSeleccionar={(letra) => {
               if (iniciado && !playing && !feedbackSound) verificarSeleccion(letra);
             }}
-            // La prop 'positionStyle' se ha eliminado
           />
         ))}
       </div>
@@ -143,7 +139,6 @@ const Vocales = () => {
         </div>
       </div>
       
-      {/* Componentes funcionales que no se ven */}
       {soundSrc && iniciado && playing && (
         <ReactHowler src={soundSrc} playing={playing} onEnd={() => setPlaying(false)} />
       )}
@@ -156,10 +151,6 @@ const Vocales = () => {
 };
 
 export default Vocales;
-
-
-
-
 
 
 
