@@ -28,17 +28,54 @@ body, html, #root, .App {
   background: rgba(255, 255, 255, 0.98);
   z-index: 100;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
   padding: 20px;
 }
+
+.iniciar-instrucciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  color: white;
+  font-family: var(--font-principal);
+  font-weight: bold;
+  border-radius: 25px;
+  background-color: rgba(39, 174, 96, 0.6); /* verde con 70% opacidad */
+  padding: 32px 24px;
+  width: 80vw; /* o el ancho que prefieras */
+  max-width: 900px; /* límite para pantallas grandes */
+  margin-bottom: 24px; /* espacio debajo si hace falta */
+  box-sizing: border-box;
+}
+
+.iniciar-instrucciones h2, 
+.iniciar-instrucciones ul {
+  text-align: center;
+}
+
+/* Opcional para item más elegante */
+.iniciar-instrucciones ul {
+  padding-left: 0;
+}
+
+.iniciar-instrucciones li {
+  list-style-position: inside;
+  margin-bottom: 10px;
+}
+
+
 
 .iniciar-boton {
   font-family: var(--font-principal);
   font-weight: bold;
   color: white;
   background-color: var(--color-correcto);
-  border: none;
+  border: 3px solid black;
   border-radius: 25px;
   padding: 15px 40px;
   font-size: clamp(1.5rem, 5vw, 2.5rem); /* Tamaño de fuente adaptable */
@@ -142,6 +179,7 @@ body, html, #root, .App {
   color: white;
   font-weight: 900;
   font-size: clamp(2rem, 10vw, 3.5rem);
+  font-family: Arial, Helvetica, sans-serif !important; /* aca cambia la letra para solucionar la renderizacion en otros dispositivos*/
   box-shadow: 0 5px 10px var(--color-sombra);
   cursor: pointer;
   border: 4px solid black;
@@ -163,10 +201,62 @@ body, html, #root, .App {
   animation: brillo 0.8s ease-in-out infinite alternate;
 }
 
+/*.imagen-palabra-container.error {
+  animation: errorBrillo 0.8s ease-in-out 3 alternate;
+  box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.8);
+  border-radius: 25px;
+}*/
+
+.imagen-palabra-container.error {
+  animation: shake-animation 0.5s, errorBrillo 0.8s ease-in-out 3 alternate;
+  border-radius: 25px;
+}
+
+@keyframes shake-animation {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-15px); }
+  50% { transform: translateX(15px); }
+  75% { transform: translateX(-15px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes errorBrillo {
+  from {
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px 10px rgba(255, 0, 0, 0.9);
+  }
+}
+
+@keyframes errorBrillo {
+  from {
+    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px 10px rgba(255, 0, 0, 0.9);
+  }
+}
+
+/*.shake {
+  animation: shake-animation 0.5s;
+  box-shadow: 0 0 20px 30px rgba(255, 0, 0, 0.7);
+  border-radius: 50px; /* si quieres bordes redondeados */
+/*}
+
+@keyframes shake-animation {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-15px); }
+  50% { transform: translateX(15px); }
+  75% { transform: translateX(-15px); }
+  100% { transform: translateX(0); }
+}
+
 @keyframes brillo {
   from { box-shadow: 0 0 15px 5px #ffea00; }
   to { box-shadow: 0 0 30px 10px #f5c518, 0 0 40px 15px #ffea00; }
 }
+
 
 /* --- MEDIA QUERY PARA TABLETS Y ESCRITORIO --- */
 @media (min-width: 768px) {
@@ -197,6 +287,7 @@ body, html, #root, .App {
     margin-right: 4vw;
   }
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
 

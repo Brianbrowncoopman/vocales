@@ -4,6 +4,7 @@ const ImagenPalabra = ({
   src,
   alt,
   celebracion,
+  error,
   onClickRepetirSonido,
   onMouseDown,
   onMouseUp,
@@ -13,7 +14,7 @@ const ImagenPalabra = ({
   onKeyDown
 }) => {
   // Añadimos la clase 'celebracion' dinámicamente
-  const containerClasses = `imagen-palabra-container ${celebracion ? 'celebracion' : ''}`;
+  const containerClasses = `imagen-palabra-container${celebracion ? ' celebracion' : ''}${error ? ' error' : ''}`;
 
   return (
     <div
