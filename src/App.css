@@ -15,10 +15,7 @@ body, html, #root, .App {
   overflow: hidden;
   font-family: var(--font-principal);
   background: linear-gradient(135deg, #a1d6e2, #fdefef);
-  user-select: none; /* Evita la selección de texto */
-  
-
-
+  user-select: none;
 }
 
 /* --- PANTALLA DE INICIO --- */
@@ -45,20 +42,19 @@ body, html, #root, .App {
   font-family: var(--font-principal);
   font-weight: bold;
   border-radius: 25px;
-  background-color: rgba(39, 174, 96, 0.6); /* verde con 70% opacidad */
+  background-color: rgba(39, 174, 96, 0.6);
   padding: 32px 24px;
-  width: 80vw; /* o el ancho que prefieras */
-  max-width: 900px; /* límite para pantallas grandes */
-  margin-bottom: 24px; /* espacio debajo si hace falta */
+  width: 80vw;
+  max-width: 900px;
+  margin-bottom: 24px;
   box-sizing: border-box;
 }
 
-.iniciar-instrucciones h2, 
+.iniciar-instrucciones h2,
 .iniciar-instrucciones ul {
   text-align: center;
 }
 
-/* Opcional para item más elegante */
 .iniciar-instrucciones ul {
   padding-left: 0;
 }
@@ -68,8 +64,6 @@ body, html, #root, .App {
   margin-bottom: 10px;
 }
 
-
-
 .iniciar-boton {
   font-family: var(--font-principal);
   font-weight: bold;
@@ -78,7 +72,7 @@ body, html, #root, .App {
   border: 3px solid black;
   border-radius: 25px;
   padding: 15px 40px;
-  font-size: clamp(1.5rem, 5vw, 2.5rem); /* Tamaño de fuente adaptable */
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   box-shadow: 0 6px 15px var(--color-sombra);
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease;
@@ -95,30 +89,20 @@ body, html, #root, .App {
 /* --- CONTENEDOR PRINCIPAL DEL JUEGO --- */
 .contador-feedback {
   margin: 2vw auto 0 auto;
-  background-color: #a3c4f3; /* azul pastel */
+  background-color: #a3c4f3;
   border: 3px solid black;
   color: white;
   font-weight: bold;
-  padding: 16px; /* separa el contenido de los bordes */
-  border-radius: 10px; /* opcional, para bordes redondeados */
+  padding: 16px;
+  border-radius: 10px;
   display: flex;
-  gap: 2rem; /* separación entre elementos internos */
+  gap: 2rem;
   justify-content: center;
   font-size: 1.2rem;
+  box-shadow: 0 4px 10px var(--color-sombra);
 }
 
-.zona-juego {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 2vw;
-  gap: 5vw;
-}
-
-
+/* --- CONTENEDORES PRINCIPALES DE LOS MODULOS --- */
 .vocales-container {
   width: 100vw;
   min-height: 100vh;
@@ -140,9 +124,9 @@ body, html, #root, .App {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 450px; /* Limita el tamaño en pantallas muy anchas */
+  max-width: 450px;
   gap: 2vmin;
-  margin-top: auto; /* Empuja hacia el centro/abajo en modo columna */
+  margin-top: auto;
 }
 
 .imagen-palabra-container {
@@ -169,7 +153,7 @@ body, html, #root, .App {
 }
 
 .imagen-palabra-container:active {
-   transform: scale(0.97);
+  transform: scale(0.97);
 }
 
 .imagen-palabra-container img {
@@ -177,23 +161,24 @@ body, html, #root, .App {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
-  pointer-events: none; /* Evita que la imagen intercepte clicks */
+  object-fit: cover;
+  pointer-events: none;
 }
 
+/* --- CONTENEDOR DE FEEDBACK GENERAL --- */
 .feedback-container {
   text-align: center;
   font-size: clamp(1.1rem, 4vw, 1.5rem);
   font-weight: 700;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  min-height: 50px; /* Espacio reservado para el feedback */
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* --- ZONA DE LOS CUBOS DE VOCALES --- */
+/* --- GRID DE LOS CUBOS DE VOCALES --- */
 .cubos-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -202,9 +187,121 @@ body, html, #root, .App {
   gap: 2vmin;
   width: 100%;
   max-width: 350px;
-  margin-bottom: auto; /* Empuja hacia el centro/arriba en modo columna */
+  margin-bottom: auto;
 }
 
+/* --- GRID DE LOS CUBOS DE NÚMEROS --- */
+.cubos-container-numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2vmin;
+  width: 90%;
+  max-width: 350px;
+  margin-bottom: auto;
+}
+
+/* --- CUBOS PARA NÚMEROS --- */
+.cubo-numeros {
+  width: 140px;
+  height: 90px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 900;
+  font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif !important;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: 4px solid black;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.1;
+  transition: all 0.2s ease;
+}
+
+.cubo-numeros:active {
+  transform: scale(0.95);
+}
+
+.cubo-numeros.seleccionado {
+  transform: scale(1.1);
+  border-color: var(--color-correcto);
+  box-shadow: 0 0 15px 4px var(--color-correcto);
+}
+
+/* --- GRID DE LOS CUBOS DE VEHICULOS --- */
+.cubos-container-vehiculos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2vmin;
+  width: 90%;
+  max-width: 350px;
+  margin-bottom: auto;
+}
+
+/* --- CUBOS PARA VEHÍCULOS --- */
+.cubo-vehiculo {
+  width: 140px;
+  height: 90px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 900;
+  font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif !important;
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: 4px solid black;
+  text-transform: capitalize;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.1;
+  transition: all 0.2s ease;
+}
+
+.cubo-vehiculo:active {
+  transform: scale(0.95);
+}
+
+.cubo-vehiculo.seleccionado {
+  transform: scale(1.1);
+  border-color: var(--color-correcto);
+  box-shadow: 0 0 15px 4px var(--color-correcto);
+}
+
+/* --- MEDIA QUERY PARA MÓVILES --- */
+@media (max-width: 600px) {
+  .cubos-container-numeros,
+  .cubos-container-vehiculos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5vw;
+    width: 98vw;
+    max-width: 98vw;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  .cubo-numeros, .cubo-vehiculo {
+    width: 110px;
+    height: 75px;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    padding: 4px 8px;
+  }
+}
+
+/* --- CUBOS PARA VOCALES --- */
 .cubo-vocal {
   aspect-ratio: 1 / 1;
   border-radius: 20px;
@@ -214,13 +311,11 @@ body, html, #root, .App {
   color: white;
   font-weight: 900;
   font-size: clamp(2rem, 10vw, 3.5rem);
-  font-family: Arial, Helvetica, sans-serif !important; /* mantén como estaba */
+  font-family: Arial, Helvetica, sans-serif !important;
   box-shadow: 0 5px 10px var(--color-sombra);
   cursor: pointer;
   border: 4px solid black;
   transition: all 0.2s ease;
-
-  /* NUEVAS PROPUESTAS para evitar ligaduras y sustituciones en móviles */
   font-variant-ligatures: none;
   -webkit-font-feature-settings: "liga" 0;
   font-feature-settings: "liga" 0;
@@ -241,17 +336,12 @@ body, html, #root, .App {
   animation: brillo 0.8s ease-in-out infinite alternate;
 }
 
-/*.imagen-palabra-container.error {
-  animation: errorBrillo 0.8s ease-in-out 3 alternate;
-  box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.8);
-  border-radius: 25px;
-}*/
-
 .imagen-palabra-container.error {
   animation: shake-animation 0.5s, errorBrillo 0.8s ease-in-out 3 alternate;
   border-radius: 25px;
 }
 
+/* --- ANIMATIONS KEYFRAMES --- */
 @keyframes shake-animation {
   0% { transform: translateX(0); }
   25% { transform: translateX(-15px); }
@@ -267,36 +357,12 @@ body, html, #root, .App {
   to {
     box-shadow: 0 0 30px 10px rgba(255, 0, 0, 0.9);
   }
-}
-
-@keyframes errorBrillo {
-  from {
-    box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.4);
-  }
-  to {
-    box-shadow: 0 0 30px 10px rgba(255, 0, 0, 0.9);
-  }
-}
-
-/*.shake {
-  animation: shake-animation 0.5s;
-  box-shadow: 0 0 20px 30px rgba(255, 0, 0, 0.7);
-  border-radius: 50px; /* si quieres bordes redondeados */
-/*}
-
-@keyframes shake-animation {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-15px); }
-  50% { transform: translateX(15px); }
-  75% { transform: translateX(-15px); }
-  100% { transform: translateX(0); }
 }
 
 @keyframes brillo {
   from { box-shadow: 0 0 15px 5px #ffea00; }
   to { box-shadow: 0 0 30px 10px #f5c518, 0 0 40px 15px #ffea00; }
 }
-
 
 /* --- MEDIA QUERY PARA TABLETS Y ESCRITORIO --- */
 @media (min-width: 768px) {
@@ -307,18 +373,15 @@ body, html, #root, .App {
     gap: 7vmin;
     padding-top: 4vmin;
   }
-
   .palabra-display, .cubos-container {
-    margin: 0; /* Reseteamos los márgenes automáticos */
+    margin: 0;
     height: 100%;
-    max-height: 600px; /* Altura máxima para el contenido del juego */
+    max-height: 600px;
   }
-
   .palabra-display {
     flex: 1.3;
     max-width: 550px;
   }
-
   .cubos-container {
     flex: 1;
     grid-template-columns: repeat(2, 1fr);
@@ -328,67 +391,93 @@ body, html, #root, .App {
   }
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
-
 /* ----- MEJORAS PARA EQUIPOS PEQUEÑOS ----- */
 @media (max-width: 600px) {
-  .vocales-container {
+  .vocales-container,
+  .vehiculos-container {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 5vw;           /* Más separación entre cubos e imagen */
-    padding-top: 8vw;   /* Espacio suficiente arriba en móvil */
-    padding-bottom: 4vw;
+    gap: 2vw;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
     min-height: 100vh;
     box-sizing: border-box;
-    min-height: 100vh;
-    margin-top: 0;      /* Elimina cualquier margin extra */
+    margin-top: 0;
   }
-  .cubos-container {
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: repeat(2, 1fr);
-    gap: 6vw;                /* Más espacio entre los cubos */
-    margin-bottom: 3vw;      /* Empuja los cubos hacia abajo */
+
+  .cubos-container,
+  .cubos-container-numeros,
+  .cubos-container-vehiculos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3vw;
+    width: 90vw;
+    max-width: 90vw;
+    margin-bottom: 0;
     justify-items: center;
     align-items: center;
-    width: 98vw;
-    max-width: 98vw;
   }
-  .cubo-vocal {
-    font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif; /* fuente ultra clara infantil */
+
+  .cubo-vocal,
+  .cubo-numeros {
+    font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
     font-weight: 700;
-    font-size: clamp(2rem, 15vw, 5rem);    /* Letra gigante en cubos */
+    font-size: clamp(1.6rem, 10vw, 2.2rem);
     aspect-ratio: 1 / 1;
     border-radius: 25px;
-    min-width: 70px;
-    min-height: 70px;
-    box-shadow: 0 4px 15px var(--color-sombra);
-    letter-spacing: 2px;
+    min-width: 74px;
+    min-height: 62px;
+    max-width: 150px;
+    box-shadow: 0 4px 12px var(--color-sombra);
+    letter-spacing: 1.5px;
+    padding: 3px 2px;
+    white-space: normal;
+    text-align: center;
+    margin: 0;
+    overflow: hidden;
   }
+
   .palabra-display {
-    margin-top: 4vw;
-    width: 98vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+    width: 90vw;
     max-width: 410px;
+    min-width: 200px;
   }
+
   .imagen-palabra-container {
-    width: 85vw;
-    height: 85vw;
-    min-width: 140px;
-    min-height: 140px;
-    max-width: 98vw;
-    max-height: 98vw;
-    aspect-ratio: 1 / 1;
+    width: 75vw;
+    height: 75vw;
+    min-width: 110px;
+    min-height: 110px;
+    max-width: 90vw;
+    max-height: 90vw;
+    margin: 0 auto 7px auto;
+    padding: 6px;
+    border-radius: 18px;
+  }
+
+  .contador-feedback {
+    font-size: 1rem;
     padding: 8px;
-    border-radius: 25px;
+    margin-bottom: 7px;
+    width: 85vw;
+    max-width: 360px;
+  }
+
+  .boton-volver-principal {
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin-bottom: 7px;
+    border-radius: 12px;
+    max-width: 180px;
   }
 }
 
-.cubo-vocal {
-  font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
-  font-weight: 700;
-}
-
+/* --- ICONOS DE FEEDBACK --- */
 .icono-correcto {
   color: #43ea4b;
   margin-right: 6px;
@@ -399,6 +488,50 @@ body, html, #root, .App {
   margin-right: 6px;
   font-size: 1.5em;
 }
+
+/* --- BOTONES GENERALES --- */
+.boton-menu {
+  background: #a3c4f3;
+  color: #fff;
+  font-weight: bold;
+  border: 3px solid #444;
+  border-radius: 22px;
+  padding: 20px 40px;
+  font-size: 2rem;
+  margin: 18px 0;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 2px 4px 10px var(--color-sombra);
+}
+
+.boton-menu:hover {
+  background: #8eb0de;
+  transform: scale(1.05);
+}
+
+/* --- ESTRUCTURA DE PAGINAS --- */
+.pagina-principal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto) 1fr;
+  gap: 16px 12px;
+  justify-items: center;
+  margin-top: 6vh;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+}
+
+.titulo {
+  font-size: 2.8rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+
 
 
 

@@ -1,0 +1,15 @@
+const DeportesPorLetras = [
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+    { img: "/images/deportes/.png", sound: "/sound/deportes/.mp3", nombre: "" },
+]
+
+
+export default DeportesPorLetras;

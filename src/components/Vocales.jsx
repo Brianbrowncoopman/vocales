@@ -4,6 +4,8 @@ import Confeti from "./Confeti";
 import CuboVocal from "./CuboVocal";
 import ImagenPalabra from "./ImagenPalabra";
 import palabrasPorLetra from "./PalabrasPorLetra";
+import { useNavigate } from 'react-router-dom';
+
 
 const coloresCubo = [
   "#FF6F61", "#FFD54F", "#4FC3F7", "#81C784", "#BA68C8"
@@ -51,6 +53,8 @@ const Vocales = () => {
 
   const [contadorCorrectas, setContadorCorrectas] = useState(0);
   const [contadorErroneas, setContadorErroneas] = useState(0);
+
+  const navigate = useNavigate();
 
   const advanceTimeoutRef = useRef(null);
 
@@ -176,13 +180,23 @@ const Vocales = () => {
               Incorrectas: {contadorErroneas}
             </p>
           </div>
+          {/* Botón para volver a Principal */}
+          <button
+            className="boton-volver-principal"
+            style={{ marginTop: '15px',
+             padding: '8px 18px', 
+             borderRadius: '12px', 
+             background: '#FF6F61', 
+             color: 'white', 
+             border: 'none', 
+             fontSize: '1.1rem', 
+             fontWeight: 'bold' }}
+            onClick={() => navigate('/')}
+          >
+            Ir a Menú Principal
+          </button>
           
         </div>
-          
-
-
-    
-
       {soundSrc && iniciado && playing && (
         <ReactHowler src={soundSrc} playing={playing} onEnd={() => setPlaying(false)} />
       )}
